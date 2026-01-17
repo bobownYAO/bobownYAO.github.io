@@ -1,0 +1,48 @@
+/* 1. 恢复父容器的垂直排列和居中，确保主标题稳居 C 位 */
+.home-banner-container .description.flex-col {
+    display: flex !important;
+    flex-direction: column !important; /* 回到上下排列 */
+    align-items: center !important;    /* 水平居中 */
+    justify-content: center !important;
+    position: relative !important;     /* 作为副标题定位的参照物 */
+}
+
+/* 2. 针对主标题（写在 description 里的第一行文字） */
+/* 注意：Redefine 的 title 有时没有专门的标签，直接在 description 下 */
+/* 我们需要给它一个相对定位，方便副标题跟随 */
+.home-banner-container .description {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* 3. 副标题绝对定位：这是解决居中偏移的杀手锏 */
+.home-banner-container .description p {
+    position: absolute !important; /* 脱离文档流，不再占据空间 */
+    
+    /* 定位逻辑： */
+    /* 我们把副标题定位在父级容器的中心线右侧 */
+    left: 40% !important; 
+    
+    /* 这里的偏移量需要你根据主标题的长度手动调节 */
+    /* 比如主标题比较长，这个值就设大一点，比如 180px */
+    margin-left: 160px !important; 
+    
+    /* 垂直位置：垂直中心点偏下 */
+    top: 50% !important;
+    margin-top: 15px !important; 
+    
+    white-space: nowrap !important;
+    width: auto !important;
+}
+
+#subtitle {
+    font-style: normal !important;
+    font-size: 1.3rem !important;
+}
+
+/* 隐藏所有分类中包含 d2l 字样的文章卡片容器 */
+.home-article-wrapper:has(.home-article-category a[href*="d2l"]) {
+    display: none !important;
+}
