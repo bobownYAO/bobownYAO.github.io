@@ -46,3 +46,93 @@
 .home-article-wrapper:has(.home-article-category a[href*="d2l"]) {
     display: none !important;
 }
+
+
+
+
+
+/* 1. 彻底清空 body 的默认背景，确保它在全站都是透明的 */
+body {
+    background: transparent !important;
+}
+
+/* 2. 只有在【非首页】时，才创建并显示背景图图层 */
+body:not(.home-container)::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10; 
+    background: url('/images/post-background.png') no-repeat center center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+/* 3. 击穿所有可能的黑色层（必须全覆盖） */
+/* 我们不仅要改容器，还要把所有可能出现的“底色”全部挖空 */
+html, body, 
+#body-container, 
+.main-content-container, 
+.post-page-container, 
+.article-content-container,
+footer, .footer {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 4. 解决文字漂浮感：给内容区加一层轻微的磨砂感 */
+/* 这样滚动时，文字是在一块半透明的玻璃上滑动，而背景图在玻璃后面纹丝不动 */
+.article-content-container {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(10px);
+    padding: 20px !important;
+    border-radius: 12px;
+}
+
+/* 5. 暗黑模式下的处理：防止晚上看太刺眼 */
+.dark-mode .article-content-container {
+    background: rgba(0, 0, 0, 0.75) !important;        /* 黑色半透明 */
+    color: #ffffff !important;
+}
+
+/* 6. 这里的容器是“存放文字的白色/黑色大盒子”之外的那个大空间 */
+/* 如果这层不透明，你还是看不到 body 的背景 */
+.post-page-container, .page-container, .post-main-all {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
+
+
+
+/* 1. 调整左侧 Logo 标题颜色 */
+.navbar-content .left .logo-title {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important; /* 黑色半透明阴影 */
+}
+
+/* 2. 调整 PC 端导航栏菜单文字及图标 */
+.navbar-item a, 
+.navbar-item i, 
+.navbar-item .fa-magnifying-glass {
+    color: #ffffff !important;
+    /* font-weight: 600 !important;
+    transition: all 0.3s ease; */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 3. 调整悬停（Hover）状态，增加交互感 */
+.navbar-item a:hover {
+    color: var(--primary-color) !important;
+    /* text-shadow: 0 0 8px rgba(255, 255, 255, 0.3) !important; */
+}
+
+/* 4. 如果你觉得整个导航栏背景太透，可以给它加一点点“毛玻璃”挡一下背景图 */
+.navbar-container {
+    background: rgba(0, 0, 0, 0.1) !important; /* 极淡的黑色遮罩 */
+    backdrop-filter: blur(10px) !important;     /* 稍微模糊一点背景 */
+}
