@@ -82,32 +82,6 @@ footer, .footer {
     background-color: transparent !important;
 }
 
-/* 4. 解决文字漂浮感：给内容区加一层轻微的磨砂感 */
-/* 这样滚动时，文字是在一块半透明的玻璃上滑动，而背景图在玻璃后面纹丝不动 */
-.article-content-container {
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(10px);
-    padding: 20px !important;
-    border-radius: 12px;
-}
-
-/* 5. 暗黑模式下的处理：防止晚上看太刺眼 */
-.dark-mode .article-content-container {
-    background: rgba(0, 0, 0, 0.75) !important;        /* 黑色半透明 */
-    color: #ffffff !important;
-}
-
-/* 6. 这里的容器是“存放文字的白色/黑色大盒子”之外的那个大空间 */
-/* 如果这层不透明，你还是看不到 body 的背景 */
-.post-page-container, .page-container, .post-main-all {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-
-
-
-
 /* 1. 调整左侧 Logo 标题颜色 */
 .navbar-content .left .logo-title {
     color: #ffffff !important;
@@ -135,4 +109,51 @@ footer, .footer {
 .navbar-container {
     background: rgba(0, 0, 0, 0.1) !important; /* 极淡的黑色遮罩 */
     backdrop-filter: blur(10px) !important;     /* 稍微模糊一点背景 */
+}
+
+
+/* 1. 解决文字漂浮感：给内容区加一层轻微的磨砂感 */
+/* 这样滚动时，文字是在一块半透明的玻璃上滑动，而背景图在玻璃后面纹丝不动 */
+.article-content-container {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px);
+    padding: 40px !important;
+    border-radius: 12px;
+}
+
+.archive-container {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px);
+    padding: 40px !important;
+    border-radius: 12px;
+}
+
+.page-template-container {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px);
+    padding: 50px !important;
+    border-radius: 12px;
+}
+
+/* 2. 暗黑模式下的处理：防止晚上看太刺眼 */
+.dark-mode .article-content-container {
+    background: rgba(0, 0, 0, 0.75) !important;        /* 黑色半透明 */
+    color: #ffffff !important;
+}
+
+.dark-mode .archive-container {
+    background: rgba(0, 0, 0, 0.75) !important;        /* 黑色半透明 */
+    color: #ffffff !important;
+}
+
+.dark-mode .page-template-container {
+    background: rgba(0, 0, 0, 0.75) !important;        /* 黑色半透明 */
+    color: #ffffff !important;
+}
+
+/* 3. 这里的容器是“存放文字的白色/黑色大盒子”之外的那个大空间 */
+/* 如果这层不透明，你还是看不到 body 的背景 */
+.post-page-container, .page-container, .post-main-all {
+    background: transparent !important;
+    background-color: transparent !important;
 }
