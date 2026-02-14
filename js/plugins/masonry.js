@@ -62,3 +62,5 @@ if (data.masonry) {
 
   document.addEventListener("DOMContentLoaded", initMasonry);
 }
+
+
