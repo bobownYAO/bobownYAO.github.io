@@ -83,13 +83,14 @@ footer, .footer {
 }
 
 /* 1. 调整左侧 Logo 标题颜色 */
-.navbar-content .left .logo-title {
+.dark-mode .navbar-content .left .logo-title {
     color: #ffffff !important;
     font-weight: 600 !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important; /* 黑色半透明阴影 */
 }
 
 /* 2. 调整 PC 端导航栏菜单文字及图标 */
+.dark-mode
 .navbar-item a, 
 .navbar-item i, 
 .navbar-item .fa-magnifying-glass {
