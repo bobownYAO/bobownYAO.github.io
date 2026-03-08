@@ -614,7 +614,7 @@
         const itemCount = imageItems.length;
         
         // 线性函数：基础 300ms + 每张图 150ms (你可以根据实际网速调整这个值)
-        const dynamicDelay = Math.max(500, (itemCount * 150) + 300);
+        const dynamicDelay = Math.max(500, (itemCount * 200) + 500);
         
         console.log(`Masonry: Total ${itemCount} images. Dynamic timeout set to ${dynamicDelay}ms.`);
 
